@@ -108,7 +108,7 @@ export default function Contact({ postId }: any) {
               <div className="mb-4">
                 <textarea
                   id="message"
-                  rows="4"
+                  rows={4}
                   placeholder="Nhập nội dung"
                   className="w-full py-3 px-3 border rounded focus:outline-none focus:border-blue-500"
                   {...register("content", {
