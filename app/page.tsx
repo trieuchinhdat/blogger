@@ -24,7 +24,7 @@ export default function Home() {
     };
     fechData();
   }, []);
-  // console.log(data);
+  console.log(data);
   if (data === undefined) {
     // Hiển thị hiệu ứng tải
     return (

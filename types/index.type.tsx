@@ -98,4 +98,5 @@ export interface IHome {
     title: string;
     content: string;
   };
+  urlBanner_image: string;
 }
