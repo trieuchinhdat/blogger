@@ -39,7 +39,7 @@ const ListBlogHome = ({ data }: any) => {
                   {element.attributes.category}
                 </span>
               </div>
-              <div className="pt-[15px] pl-[8px] pb-[10px]">
+              <div className="pt-[15px] pl-[8px] pb-[10px] text-[14px]">
                 <Link href={`/blog/${element.id}`}>
                   <h2 className="text-black font-medium hover:text-[#4B6BFB] py-[2px] px-[4px] mb-[15px] line-clamp-2">
                     {element.attributes.title}

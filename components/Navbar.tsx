@@ -8,11 +8,12 @@ import { BiSearch } from "react-icons/bi";
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const Navbar = () => {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
-
+  const [animationParent] = useAutoAnimate();
   const [navbar, setNavbar] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
 
@@ -114,16 +115,24 @@ const Navbar = () => {
                 >
                   <ul className="items-center justify-center space-y-4 md:flex md:space-x-2 md:space-y-0">
                     <li className="text-black font-bold hover:text-indigo-200 md:px-[10px]">
-                      <Link href="/">Trang chủ</Link>
+                      <Link href="/" onClick={() => setNavbar(false)}>
+                        Trang chủ
+                      </Link>
                     </li>
                     <li className="text-black font-bold hover:text-indigo-200 md:px-[10px]">
-                      <Link href="/blog">Bài viết</Link>
+                      <Link href="/blog" onClick={() => setNavbar(false)}>
+                        Bài viết
+                      </Link>
                     </li>
                     <li className="text-black font-bold hover:text-indigo-200 md:px-[10px]">
-                      <Link href="/about">Giới thiệu</Link>
+                      <Link href="/about" onClick={() => setNavbar(false)}>
+                        Giới thiệu
+                      </Link>
                     </li>
                     <li className="text-black font-bold hover:text-indigo-200 md:px-[10px]">
-                      <Link href="contact">Liên hệ</Link>
+                      <Link href="contact" onClick={() => setNavbar(false)}>
+                        Liên hệ
+                      </Link>
                     </li>
                   </ul>
                   {/* <div className="md:hidden sm:inline-block relative mt-[10px]">

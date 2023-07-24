@@ -1,6 +1,7 @@
 "use client";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Metadata, ResolvingMetadata } from "next";
 import parse from "html-react-parser";
 import dayjs from "dayjs";
 import { FaUserCheck } from "react-icons/fa";
@@ -11,7 +12,28 @@ import FacebookComments from "./FacebookComment";
 import { FacebookProvider, ShareButton } from "react-facebook";
 import FacebookLike from "./FacebookLike";
 
-function Page({ params }: { params: { id: string } }) {
+type Props = {
+  params: { id: string };
+};
+
+// set dynamic metadata
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // read route params
+  const id = params.id;
+  const url = "https://blogger-admin.onrender.com/api/blogs/" + id;
+
+  // fetch data
+  const data = await fetch(url).then((res) => res.json());
+  const blogPost = data.attributes;
+  console.log(blogPost);
+
+  return {
+    title: blogPost.title,
+    description: blogPost.description,
+  };
+}
+
+export default function Page({ params }: Props) {
   const [data, setData] = useState<any>();
   const postURL = `https://blogger-admin.onrender.com/api/blogs/${params.id}?populate=*`;
   // const [isLoading, setLoading] = useState(false);
@@ -29,6 +51,26 @@ function Page({ params }: { params: { id: string } }) {
     window.scrollTo(0, 0);
     fechData();
   }, [params.id]);
+
+  const handleShareButton = () => {
+    // Check if navigator.share is supported by the browser
+    if (navigator.share) {
+      console.log("Congrats! Your browser supports Web Share API");
+      navigator
+        .share({
+          url: `https://share.toogoodtogo.com/store/1006/milestones/meals-saved/`,
+        })
+        .then(() => {
+          console.log("Sharing successfull");
+        })
+        .catch(() => {
+          console.log("Sharing failed");
+        });
+    } else {
+      console.log("Sorry! Your browser does not support Web Share API");
+    }
+  };
+
   if (data === undefined) {
     // Hiển thị hiệu ứng tải
     return (
@@ -45,7 +87,7 @@ function Page({ params }: { params: { id: string } }) {
   return (
     <div className="blogAll-page">
       <Breadcrumb title={data.title} />
-      <div className="container mx-auto xl:max-w-[1200px] px-4 md:px-8">
+      <div className="container mx-auto xl:max-w-[1200px] px-4 md:px-8 overflow-hidden md:overflow-visible">
         <div className="widget-content my-[30px] md:my-[60px] grid grid-cols-1 gap-[30px]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="col-span-1 md:col-span-2">
@@ -80,6 +122,16 @@ function Page({ params }: { params: { id: string } }) {
               <div className="btn-like-fb">
                 <FacebookLike url={postURL} />
               </div>
+              <div className="bnt-share">
+                <button
+                  title="Share this article"
+                  type="button"
+                  onClick={handleShareButton}
+                  className="flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 text-[13px] text-white px-3 py-1 rounded"
+                >
+                  Share
+                </button>
+              </div>
               <div className="comment">
                 <div className="wrap-title mb-[30px] border-b-2 border-slate-100">
                   <h2 className="text-start inline-block relative py-[10px] text-[24px] font-bold">
@@ -91,7 +143,7 @@ function Page({ params }: { params: { id: string } }) {
                 <FacebookComments url={postURL} />
               </div>
             </div>
-            <div className="col-span-1">
+            <div className="col-span-1 relative">
               <SidebarBlog />
             </div>
           </div>
@@ -100,5 +152,3 @@ function Page({ params }: { params: { id: string } }) {
     </div>
   );
 }
-
-export default Page;

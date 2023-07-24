@@ -71,14 +71,16 @@ const Blogs: React.FunctionComponent = () => {
                 {element.attributes.category}
               </span>
             </div>
-            <div className="py-[15px] px-[20px] col-span-2">
+            <div className="py-[15px] px-[8px] md:px-[20px] col-span-2">
               <Link href={`/blog/${element.id}`}>
-                <h2 className="text-black font-bold hover:text-[#4B6BFB] py-[2px] px-[4px] mb-[15px] line-clamp-2">
+                <h2 className="text-black text-[14px] md:text-[16px] font-bold hover:text-[#4B6BFB] py-[2px] px-[4px] mb-[15px] line-clamp-2">
                   {element.attributes.title}
                 </h2>
               </Link>
-              <div className="content mb-[10px] line-clamp-3">
-                {parse(element.attributes.description)}
+              <div className="content hidden md:block mb-[10px] ">
+                <div className="line-clamp-3 text-[15px] pl-[2px]">
+                  {parse(element.attributes.description)}
+                </div>
               </div>
               <div>
                 {element.attributes.author != null && (

@@ -42,14 +42,16 @@ export default function Home() {
     <main className="main">
       <Slider data={data.section1} />
       <AboutHome data={data.section2} />
-      <Image
-        src="https://res.cloudinary.com/dr6pegkgw/image/upload/v1690113997/banner_home_86d3f4c2bb.png"
-        alt="banner-home"
-        width={0}
-        height={0}
-        sizes="100vw"
-        style={{ width: "100%", height: "auto" }}
-      />
+      <div className="section-banner flex justify-center">
+        <Image
+          src={data.urlBanner_image}
+          alt="banner-home"
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: "100%", height: "auto" }}
+        />
+      </div>
       <ListBlogHome data={data} />
     </main>
   );
