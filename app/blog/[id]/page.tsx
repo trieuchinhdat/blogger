@@ -9,29 +9,11 @@ import Image from "next/image";
 import Breadcrumb from "@/components/Breadcrumb";
 import SidebarBlog from "../SidebarBlog";
 import FacebookComments from "./FacebookComment";
-import { FacebookProvider, ShareButton } from "react-facebook";
 import FacebookLike from "./FacebookLike";
 
 type Props = {
   params: { id: string };
 };
-
-// set dynamic metadata
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  // read route params
-  const id = params.id;
-  const url = "https://blogger-admin.onrender.com/api/blogs/" + id;
-
-  // fetch data
-  const data = await fetch(url).then((res) => res.json());
-  const blogPost = data.attributes;
-  console.log(blogPost);
-
-  return {
-    title: blogPost.title,
-    description: blogPost.description,
-  };
-}
 
 export default function Page({ params }: Props) {
   const [data, setData] = useState<any>();
