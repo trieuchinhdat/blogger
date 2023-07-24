@@ -2,7 +2,6 @@
 import AboutHome from "@/components/AboutHome";
 import ListBlogHome from "@/components/ListBlogHome";
 import Slider from "@/components/Slider";
-import SliderBlogHome from "@/components/SliderBlogHome";
 import { IHome } from "@/types/index.type";
 import axios from "axios";
 import Image from "next/image";
