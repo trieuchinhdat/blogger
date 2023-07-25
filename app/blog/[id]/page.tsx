@@ -15,20 +15,20 @@ type Props = {
   params: { id: string };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  // read route params
-  const url = `https://blogger-admin.onrender.com/api/blogs/${params.id}?populate=*`;
+// export async function generateMetadata({ params }: Props): Promise<Metadata> {
+//   // read route params
+//   const url = `https://blogger-admin.onrender.com/api/blogs/${params.id}?populate=*`;
 
-  // fetch data
-  const data = await fetch(url).then((res) => res.json());
-  const blogPost = data.data.attributes;
-  console.log(blogPost);
+//   // fetch data
+//   const data = await fetch(url).then((res) => res.json());
+//   const blogPost = data.data.attributes;
+//   console.log(blogPost);
 
-  return {
-    title: blogPost.title,
-    description: blogPost.description,
-  };
-}
+//   return {
+//     title: blogPost.title,
+//     description: blogPost.description,
+//   };
+// }
 
 export default function Page({ params }: Props) {
   const [data, setData] = useState<any>();
