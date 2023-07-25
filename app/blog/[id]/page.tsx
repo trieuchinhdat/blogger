@@ -15,6 +15,21 @@ type Props = {
   params: { id: string };
 };
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // read route params
+  const url = `https://blogger-admin.onrender.com/api/blogs/${params.id}?populate=*`;
+
+  // fetch data
+  const data = await fetch(url).then((res) => res.json());
+  const blogPost = data.data.attributes;
+  console.log(blogPost);
+
+  return {
+    title: blogPost.title,
+    description: blogPost.description,
+  };
+}
+
 export default function Page({ params }: Props) {
   const [data, setData] = useState<any>();
   const postURL = `https://blogger-admin.onrender.com/api/blogs/${params.id}?populate=*`;
@@ -40,7 +55,7 @@ export default function Page({ params }: Props) {
       console.log("Congrats! Your browser supports Web Share API");
       navigator
         .share({
-          url: `https://share.toogoodtogo.com/store/1006/milestones/meals-saved/`,
+          url: `https://blogger-admin.onrender.com/api/blogs/${params.id}`,
         })
         .then(() => {
           console.log("Sharing successfull");
