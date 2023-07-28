@@ -77,7 +77,7 @@ const Blogs: React.FunctionComponent = () => {
                   {element.attributes.title}
                 </h2>
               </Link>
-              <div className="content hidden md:block mb-[10px] ">
+              <div className="content mb-[10px] ">
                 <div className="line-clamp-3 text-[15px] pl-[2px]">
                   {parse(element.attributes.description)}
                 </div>
@@ -94,9 +94,7 @@ const Blogs: React.FunctionComponent = () => {
                 )}
 
                 <span className="date px-[4px] text-[13px]">
-                  {dayjs(`${element.attributes.updatedAt}`).format(
-                    "DD.MM.YYYY"
-                  )}
+                  {dayjs(`${element.attributes.date}`).format("DD.MM.YYYY")}
                 </span>
               </div>
             </div>

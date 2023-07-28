@@ -20,7 +20,7 @@ const Slider = ({ data }: any) => {
           sizes="100vw"
           style={{ width: "100%", height: "auto" }}
         />
-        <div className="text bg-white/[.08] absolute top-0 left-0 bottom-0 right-0 flex flex-col justify-center items-center text-white">
+        {/* <div className="text bg-white/[.08] absolute top-0 left-0 bottom-0 right-0 flex flex-col justify-center items-center text-white">
           <div className="txt-sub font-serif md:pb-[25px] md:text-3xl sm:text-sm">
             {data.subTitle}
           </div>
@@ -46,7 +46,7 @@ const Slider = ({ data }: any) => {
               </Link>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );
