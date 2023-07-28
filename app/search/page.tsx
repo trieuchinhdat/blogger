@@ -121,7 +121,7 @@ const SearchPage = () => {
                     )}
 
                     <span className="date px-[4px] text-[13px]">
-                      {dayjs(`${element.attributes.date}`).format("DD-MM-YYYY")}
+                      {dayjs(`${element.attributes.date}`).format("DD.MM.YYYY")}
                     </span>
                   </div>
                 </div>

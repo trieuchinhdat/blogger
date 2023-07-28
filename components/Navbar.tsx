@@ -49,8 +49,10 @@ const Navbar = () => {
   const searchClassName = isSticky ? "hidden md:block" : "";
   // console.log(searchQuery);
   return (
-    <header className={`header ${headerClassName}`}>
-      <div className="shadow-lg shadow-[gray]/[0.2] border-b-[0.5px]">
+    <header className="header min-h-[100px]">
+      <div
+        className={`shadow-lg shadow-[gray]/[0.2] border-b-[0.5px] ${headerClassName}`}
+      >
         <div className="container mx-auto xl:max-w-[1200px] text-black flex items-center justify-between">
           <nav className="w-full bg-white z-10">
             <div className="justify-between relative px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">

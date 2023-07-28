@@ -95,7 +95,7 @@ const Blogs: React.FunctionComponent = () => {
 
                 <span className="date px-[4px] text-[13px]">
                   {dayjs(`${element.attributes.updatedAt}`).format(
-                    "DD-MM-YYYY"
+                    "DD.MM.YYYY"
                   )}
                 </span>
               </div>

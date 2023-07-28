@@ -80,7 +80,7 @@ const SidebarBlog: React.FunctionComponent = () => {
 
                 <span className="date px-[4px] text-[12px]">
                   {dayjs(`${element.attributes.updatedAt}`).format(
-                    "DD-MM-YYYY"
+                    "DD.MM.YYYY"
                   )}
                 </span>
               </div>
