@@ -105,7 +105,7 @@ const SearchPage = () => {
                 </div>
                 <div className="pt-[15px] px-[8px] pb-[10px]">
                   <Link href={`/blog/${element.attributes.id}`}>
-                    <h2 className="text-black font-medium text-[14px] md:text-[16px] hover:text-[#4B6BFB] py-[2px] px-[4px] mb-[15px] line-clamp-2">
+                    <h2 className="text-black font-medium text-[14px] md:text-[16px] hover:text-[#4B6BFB] py-[2px] px-[4px] mb-[5px] line-clamp-2">
                       {element.attributes.title}
                     </h2>
                   </Link>

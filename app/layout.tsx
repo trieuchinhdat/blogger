@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        {children}
+        <div className="wrap-content min-h-[80vh]">{children}</div>
         <Footer />
       </body>
     </html>

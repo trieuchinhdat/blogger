@@ -113,7 +113,7 @@ export default function BlogDetail({ params }: Props) {
                 </button>
               </div>
               <div className="comment">
-                <div className="wrap-title mb-[30px] border-b-2 border-slate-100">
+                <div className="wrap-title mb-[30px] mt-[15px] border-b-2 border-slate-100">
                   <h2 className="text-start inline-block relative py-[10px] text-[24px] font-bold">
                     Bình luận bài viết
                     <span className="absolute bottom-[-2px] left-0 right-0 border-b-2 border-amber-500"></span>

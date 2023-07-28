@@ -60,7 +60,7 @@ const SidebarBlog: React.FunctionComponent = () => {
             </div>
             <div className="py-[8px] px-[8px] col-span-2">
               <Link href={`/blog/${element.id}`}>
-                <h2 className="text-black text-[13px] font-medium hover:text-[#4B6BFB] py-[2px] px-[4px] mb-[15px] line-clamp-2">
+                <h2 className="text-black text-[13px] font-medium hover:text-[#4B6BFB] py-[2px] px-[4px] mb-[5px] line-clamp-2">
                   {element.attributes.title}
                 </h2>
               </Link>
