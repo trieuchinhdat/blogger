@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "Blogging Website",
   openGraph: {
     images:
-      "https://res.cloudinary.com/dr6pegkgw/image/upload/v1690258215/blogger_6ce79d5c75.png",
+      "https://res.cloudinary.com/dr6pegkgw/image/upload/v1690550810/banner_home_83ea84cca6.png",
   },
 };
 
