@@ -24,11 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await fetch(url).then((res) => res.json());
   const blogPost = data.data.attributes;
   const parseContent = parse(blogPost.description) as string;
-  // console.log(parseContent);
 
   return {
     title: blogPost.title,
-    description: parseContent,
+    description: parseContent.toString(),
     openGraph: {
       images: blogPost.imageUrl,
     },
