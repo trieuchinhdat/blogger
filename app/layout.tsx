@@ -8,8 +8,9 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["greek"] });
 
 export const metadata: Metadata = {
-  title: "Blogging Website",
-  description: "Blogging Website",
+  title: "Blogger Website Autumn",
+  description:
+    "Une Parisienne | A gardener | An author | A driver | A singer | A speaker | A lawyer | and more..",
   openGraph: {
     images:
       "https://res.cloudinary.com/dr6pegkgw/image/upload/v1690550810/banner_home_83ea84cca6.png",
