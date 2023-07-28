@@ -2,14 +2,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Metadata, ResolvingMetadata } from "next";
-import parse from "html-react-parser";
-import dayjs from "dayjs";
-import { FaUserCheck } from "react-icons/fa";
-import Image from "next/image";
-import Breadcrumb from "@/components/Breadcrumb";
-import SidebarBlog from "../SidebarBlog";
-import FacebookComments from "./FacebookComment";
-import FacebookLike from "./FacebookLike";
+import striptags from "striptags";
 import BlogDetail from "./blogDetail";
 
 type Props = {
@@ -23,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // fetch data
   const data = await fetch(url).then((res) => res.json());
   const blogPost = data.data.attributes;
-  const parseContent = JSON.stringify(parse(blogPost.description));
+  const parseContent = striptags(blogPost.description);
 
   return {
     title: blogPost.title,
