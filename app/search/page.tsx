@@ -27,8 +27,12 @@ const SearchPage = () => {
         const data: any = await response.data.data;
         const foundBlog = data.filter(
           (blog: any) =>
-            blog.attributes.title.toLowerCase().includes(search) ||
-            blog.attributes.category.toLowerCase().includes(search)
+            blog.attributes.title
+              .toLowerCase()
+              .includes(search.toLowerCase()) ||
+            blog.attributes.category
+              .toLowerCase()
+              .includes(search.toLowerCase())
         );
         setSearchResults(foundBlog);
       } catch (error) {
