@@ -99,27 +99,18 @@ export default function BlogDetail({ params }: Props) {
                 </span>
               </div>
               <div className="content mb-[60px]">{parse(data.description)}</div>
-              <div className="btn-action-facebook flex ml-[-10px]">
-                {/* <FacebookLike url={postURL} /> */}
-                <div id="fb-root"></div>
-                <script
-                  async
-                  defer
-                  crossOrigin="anonymous"
-                  src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v17.0&appId=841183000941014&autoLogAppEvents=1"
-                  nonce="dtrjkZsC"
-                ></script>
-                <div
-                  className="fb-like"
-                  data-href={postURL}
-                  data-lazy="true"
-                  data-width=""
-                  data-layout="button_count"
-                  data-action="like"
-                  data-size="large"
-                  data-share="false"
-                ></div>
-                <div className="bnt-share">
+              <div className="btn-action-facebook flex">
+                <div className="btn-like ml-[-10px]">
+                  <FacebookLike
+                    url={postURL}
+                    showFaces="true"
+                    layout="button_count"
+                    size="large"
+                    lazy="true"
+                  />
+                </div>
+
+                <div className="btn-share">
                   <button
                     title="Share this article"
                     type="button"
