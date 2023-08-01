@@ -99,19 +99,38 @@ export default function BlogDetail({ params }: Props) {
                 </span>
               </div>
               <div className="content mb-[60px]">{parse(data.description)}</div>
-              <div className="btn-like-fb">
-                <FacebookLike url={postURL} />
+              <div className="btn-action-facebook flex ml-[-10px]">
+                {/* <FacebookLike url={postURL} /> */}
+                <div id="fb-root"></div>
+                <script
+                  async
+                  defer
+                  crossOrigin="anonymous"
+                  src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v17.0&appId=841183000941014&autoLogAppEvents=1"
+                  nonce="dtrjkZsC"
+                ></script>
+                <div
+                  className="fb-like"
+                  data-href={postURL}
+                  data-lazy="true"
+                  data-width=""
+                  data-layout="button_count"
+                  data-action="like"
+                  data-size="large"
+                  data-share="false"
+                ></div>
+                <div className="bnt-share">
+                  <button
+                    title="Share this article"
+                    type="button"
+                    onClick={handleShareButton}
+                    className="flex items-center space-x-2 font-bold bg-blue-500 hover:bg-blue-600 text-[13px] text-white px-3 py-1 rounded"
+                  >
+                    Share
+                  </button>
+                </div>
               </div>
-              <div className="bnt-share">
-                <button
-                  title="Share this article"
-                  type="button"
-                  onClick={handleShareButton}
-                  className="flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 text-[13px] text-white px-3 py-1 rounded"
-                >
-                  Share
-                </button>
-              </div>
+
               <div className="comment">
                 <div className="wrap-title mb-[30px] mt-[15px] border-b-2 border-slate-100">
                   <h2 className="text-start inline-block relative py-[10px] text-[24px] font-bold">
