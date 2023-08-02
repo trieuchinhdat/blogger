@@ -19,6 +19,22 @@ const About = () => {
     fechData();
   }, []);
 
+  if (data === undefined) {
+    // Hiển thị hiệu ứng tải
+    return (
+      <div className="about-page">
+        <Breadcrumb title="Giới thiệu" />
+        <div className="min-h-[80vh] h-[100%] w-[100%] relative">
+          <div className="absolute top-0 left-0 bottom-0 right-0 bg-white flex justify-center items-center z-10">
+            <div
+              className="w-12 h-12 rounded-full animate-spin
+              border-2 border-solid border-blue-500 border-t-transparent"
+            ></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="about-page">
       <Breadcrumb title="Giới thiệu" />
