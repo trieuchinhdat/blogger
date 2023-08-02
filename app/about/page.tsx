@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import parser from "html-react-parser";
 
 const About = () => {
-  const [data, setData] = useState<any>();
+  const [data, setData] = useState<any | undefined>();
 
   useEffect(() => {
     // setLoading(true);
@@ -18,6 +18,7 @@ const About = () => {
     };
     fechData();
   }, []);
+
   return (
     <div className="about-page">
       <Breadcrumb title="Giới thiệu" />
